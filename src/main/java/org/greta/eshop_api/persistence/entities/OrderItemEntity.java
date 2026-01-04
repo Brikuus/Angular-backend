@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.greta.eshop_api.exposition.dtos.OrderItemRequestDTO;
 
 import java.time.LocalDateTime;
 
@@ -21,7 +22,7 @@ public class OrderItemEntity {
     private Long id;
 
     @Column(nullable = false)
-    private int quantity;
+    private Long quantity;
 
     @Column(nullable = false)
     private double unit_price;
@@ -55,7 +56,7 @@ public class OrderItemEntity {
         return this.id;
     }
 
-    public int getQuantity() {
+    public Long getQuantity() {
         return this.quantity;
     }
 
@@ -65,6 +66,11 @@ public class OrderItemEntity {
 
     public ProductEntity getProduct() {
         return product;
+    }
+
+    public void updateFrom(OrderItemRequestDTO dto) {
+        this.quantity = dto.quantity();
+        this.unit_price = dto.unit_price();
     }
 }
 

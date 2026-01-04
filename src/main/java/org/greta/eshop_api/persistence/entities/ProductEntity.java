@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.greta.eshop_api.exposition.dtos.ProductRequestDTO;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +44,10 @@ public class ProductEntity {
 
     @Column(nullable = false)
     private double discount = 0.0;
+
+    private LocalDate promoStart;
+
+    private LocalDate promoEnd;
 
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
