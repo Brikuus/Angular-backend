@@ -24,7 +24,7 @@ public class DatabaseInitializer {
         try (Connection conn = dataSource.getConnection()) {
             System.out.println("😱 Base vide : exécution de data.sql...");
             ScriptUtils.executeSqlScript(conn, new ClassPathResource("data.sql"));
-            System.out.println("🤭 Données initiales insérées avec succès !");
+            System.out.println("🤭 Données initiales insérées avec succès !!");
         } catch (Exception e) {
             e.printStackTrace();
         }

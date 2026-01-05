@@ -4,7 +4,7 @@ on:
   pull_request:
     branches:
       - staging
-      - production
+      - prod
 
 jobs:
   restrict-to-staging:
@@ -13,13 +13,13 @@ jobs:
     steps:
       - name: Check source branch
         run: |
-          if [ "${{ github.head_ref }}" != "development" ]; then
+          if [ "${{ github.head_ref }}" != "dev" ]; then
             echo "Only the 'development' branch is allowed to make pull requests to 'staging'."
             exit 1
           fi
 
   restrict-to-production:
-    if: github.base_ref == 'production'
+    if: github.base_ref == 'prod'
     runs-on: ubuntu-latest
     steps:
       - name: Check source branch
