@@ -65,7 +65,7 @@ jobs:
     e2e-tests:
       name: 🚀 E2E Tests
       runs-on: ubuntu-latest
-      if: github.event_name == 'pull_request' && ((github.base_ref == 'staging' && github.head_ref == 'development') || (github.base_ref == 'production' && github.head_ref == 'staging'))
+      if: github.event_name == 'pull_request' && ((github.base_ref == 'staging' && github.head_ref == 'dev') || (github.base_ref == 'prod' && github.head_ref == 'staging'))
       steps:
         - name: Checkout code
           uses: actions/checkout@v3
